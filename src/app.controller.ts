@@ -17,11 +17,11 @@ export class AppController {
   }
 
   @Post('/:id')
-  postPayment(
+  async postPayment(
     @Param() { id }: { id: string },
     @Body() formData: IPostPaymentPayload,
   ) {
-    this.appService.postPayment({
+    await this.appService.postPayment({
       courceId: id,
       cardNumber: formData.cardNumber,
     });
